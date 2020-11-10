@@ -63,11 +63,11 @@ class Profil {
           Row(
             children: <Widget>[
               Icon(
-                Icons.email,
+                Icons.web,
                 color: Var().primaryAccent,
               ),
               SizedBox(width: 10),
-              Text('wvwn@pm.me',
+              Text('wvwnumam.github.io',
                   style: TextStyle(
                       color: Var().secondary,
                       letterSpacing: 1,
@@ -100,6 +100,27 @@ class Profil {
               ),
               SizedBox(width: 10),
               Text('dribbble.com/wvwnumam',
+                  style: TextStyle(
+                      color: Var().secondary,
+                      letterSpacing: 1,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold)),
+            ],
+          ),
+          SizedBox(height: 30),
+          Text('HUBUNGI',
+              style: TextStyle(
+                color: Var().primaryAccent,
+              )),
+          SizedBox(height: 10),
+          Row(
+            children: <Widget>[
+              Icon(
+                Icons.email,
+                color: Var().primaryAccent,
+              ),
+              SizedBox(width: 10),
+              Text('wvwnumam@gmail.com',
                   style: TextStyle(
                       color: Var().secondary,
                       letterSpacing: 1,
