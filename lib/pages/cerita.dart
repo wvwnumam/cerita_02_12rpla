@@ -40,19 +40,74 @@ class Cerita {
                 return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int id) {
-                    return ListTile(
-                      title: Text(
-                        snapshot.data[id].title,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Var().secondary),
-                      ),
-                    );
+                    return Card(
+                        color: Var().primaryHighlight,
+                        child: ListTile(
+                          leading:
+                              Icon(Icons.notes, color: Var().primaryAccent),
+                          title: Text(
+                            snapshot.data[id].title,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Var().secondary),
+                          ),
+                          subtitle: Text(
+                            'id pencipta: ${snapshot.data[id].userId}',
+                            style: TextStyle(color: Var().primaryAccent),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) =>
+                                        DetailCerita(snapshot.data[id])));
+                          },
+                        ));
                   },
                 );
               }
             },
           )),
+    );
+  }
+}
+
+class DetailCerita extends StatelessWidget {
+  final Post post;
+  DetailCerita(this.post);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Var().primary,
+      appBar: AppBar(
+        title: Text(
+          post.title,
+          style: TextStyle(color: Var().secondary),
+        ),
+        backgroundColor: Var().primary,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            ListTile(
+              title: Text(post.title, style: TextStyle(color: Var().secondary)),
+            ),
+            ListTile(
+              title:
+                  Text(post.body, style: TextStyle(color: Var().primaryAccent)),
+            ),
+            ListTile(
+              title: Text('id: ${post.id}',
+                  style: TextStyle(color: Var().primaryAccent)),
+            ),
+            ListTile(
+              title: Text('pencipta: ${post.userId}',
+                  style: TextStyle(color: Var().primaryAccent)),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -65,34 +120,3 @@ class Post {
 
   Post(this.userId, this.id, this.title, this.body);
 }
-
-// Column(
-//   children: <Widget>[
-//     Card(
-//       color: Var().primaryHighlight,
-//       child: Padding(
-//         padding: const EdgeInsets.all(8.0),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: [
-//             Text(
-//               'INI JUDUL',
-//               style: TextStyle(
-//                   fontWeight: FontWeight.bold,
-//                   color: Var().secondary),
-//             ),
-//             RaisedButton(
-//                 color: Var().secondary,
-//                 child: Text(
-//                   'BACA',
-//                   style: TextStyle(
-//                       fontWeight: FontWeight.bold,
-//                       color: Var().primary),
-//                 ),
-//                 onPressed: () {}),
-//           ],
-//         ),
-//       ),
-//     ),
-//   ],
-// )

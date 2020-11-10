@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cerita_02_12rpla/var.dart';
+import 'package:cerita_02_12rpla/pages/cerita.dart';
 
 class Home {
   page() {
@@ -36,26 +37,16 @@ class Home {
                     ]),
                   ),
                 ),
-                Card(
-                  color: Var().primaryAccent,
-                  child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'MENU',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )),
+                ListTile(
+                  title: Text('MENU',
+                      style: TextStyle(color: Var().primaryAccent)),
                 ),
                 Card(
                   color: Var().primaryHighlight,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         RaisedButton(
                             color: Var().secondary,
@@ -133,37 +124,23 @@ class Home {
                     ),
                   ),
                 ),
-                Card(
-                  color: Var().primaryAccent,
-                  child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'CERITA',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )),
+                ListTile(
+                  title: Text('TENTANG',
+                      style: TextStyle(color: Var().primaryAccent)),
                 ),
                 Card(
-                  color: Var().primaryHighlight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'CERITA',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Var().secondary),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                    color: Var().primaryHighlight,
+                    child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          title: Text(
+                              'Aplikasi cerita. \nHa! cerite? \nSaye suka crite-crite cekgu! \nJarjit, bukan cerite, cite-cite. \nMaksudnye besar nanti kamu nak jadi ape? \nOoo...',
+                              style: TextStyle(color: Var().primaryAccent)),
+                        ))),
+                ListTile(
+                  title: Text('CERITA',
+                      style: TextStyle(color: Var().primaryAccent)),
+                ),
               ],
             )));
   }
